@@ -33,23 +33,23 @@ The program runs for 60 seconds, creating rich scheduler activity for analysis.
 
 The `GODEBUG=schedtrace` flag outputs periodic scheduler snapshots like:
 ```
-SCHED 6233ms: gomaxprocs=2 idleprocs=2 threads=4 spinningthreads=0 needspinning=0 idlethreads=2 runqueue=0 [ 0 0 ] schedticks=[ 16 16 ]
+SCHED 14ms: gomaxprocs=2 idleprocs=0 threads=4 spinningthreads=0 needspinning=1 idlethreads=1 runqueue=1 [ 4 6 ] schedticks=[ 7 9 ]
 ```
 
 ### Field Reference
 
 | Field | Meaning |
 |-------|---------|
-| **SCHED 6233ms** | Timestamp in milliseconds since start |
+| **SCHED 14ms** | Timestamp in milliseconds since start |
 | **gomaxprocs=2** | Max OS threads allowed (set via GOMAXPROCS) |
-| **idleprocs=2** | Number of idle processors with no work |
+| **idleprocs=0** | Number of idle processors with no work |
 | **threads=4** | Total OS threads created by runtime |
 | **spinningthreads=0** | Threads actively waiting for work |
-| **needspinning=0** | Whether new spinning thread is needed |
-| **idlethreads=2** | Number of idle OS threads |
-| **runqueue=0** | Goroutines in global run queue |
-| **[ 0 0 ]** | Per-processor run queue lengths |
-| **schedticks=[ 16 16 ]** | Scheduling decisions per processor |
+| **needspinning=1** | Whether new spinning thread is needed |
+| **idlethreads=1** | Number of idle OS threads |
+| **runqueue=1** | Goroutines in global run queue |
+| **[ 4 6 ]** | Per-processor run queue lengths |
+| **schedticks=[ 7 9 ]** | Scheduling decisions per processor |
 
 ### What to Look For
 
